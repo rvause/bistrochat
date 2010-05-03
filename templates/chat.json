@@ -1,0 +1,13 @@
+[
+	{% for message in messages %}
+		{
+			"id": {{ message.id }},
+			"chatter": "{{ message.chatter }}",
+			"message": "{{ message.message.strip|urlize|escapejs }}",
+			"timestamp": "{{ message.time|time:"H:i:s" }}"
+		}
+		{% if not forloop.last %}
+		,
+		{% endif %}
+	{% endfor %}
+]

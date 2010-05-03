@@ -1,0 +1,192 @@
+@font-face {
+	font-family: 'LiberationSansRegular';
+	src: url('fonts/LiberationSans-Regular-webfont.eot');
+	src: local('☺'), url('fonts/LiberationSans-Regular-webfont.woff') format('woff'), url('fonts/LiberationSans-Regular-webfont.ttf') format('truetype'), url('fonts/LiberationSans-Regular-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LiberationSansItalic';
+	src: url('fonts/LiberationSans-Italic-webfont.eot');
+	src: local('☺'), url('fonts/LiberationSans-Italic-webfont.woff') format('woff'), url('fonts/LiberationSans-Italic-webfont.ttf') format('truetype'), url('fonts/LiberationSans-Italic-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LiberationSansBold';
+	src: url('fonts/LiberationSans-Bold-webfont.eot');
+	src: local('☺'), url('fonts/LiberationSans-Bold-webfont.woff') format('woff'), url('fonts/LiberationSans-Bold-webfont.ttf') format('truetype'), url('fonts/LiberationSans-Bold-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LiberationSansBoldItalic';
+	src: url('fonts/LiberationSans-BoldItalic-webfont.eot');
+	src: local('☺'), url('fonts/LiberationSans-BoldItalic-webfont.woff') format('woff'), url('fonts/LiberationSans-BoldItalic-webfont.ttf') format('truetype'), url('fonts/LiberationSans-BoldItalic-webfont.svg#webfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	padding:0px; 
+	margin:0px;
+	font: 18px/27px 'LiberationSansRegular', Arial, sans-serif;
+}
+
+#header {
+	padding:20px; 
+	margin:0px;
+	width:360px;
+	height:35px;
+	background: url('img/headerbg.png');
+	border-bottom: 1px solid #000000;
+}
+
+#header h1 {
+	padding:0px; 
+	margin:3px 0px 0px 0px;
+	font: 24px/27px 'LiberationSansBold', Arial, sans-serif;
+	color:#ffffff;
+	text-shadow:0px 2px 2px #000000;
+}
+
+#userlist {
+	background:#7eb803 url('img/usersbg.png') top repeat-x;
+	width:360px;
+	height:100%;
+	padding:10px 20px 5px 20px;
+
+	color: #ffffff;
+	display:block;
+	overflow:auto;
+	border-top: 1px solid #adff00;
+	border-bottom: 1px solid #6ca601;
+}
+
+#userlist li {
+	float:left;
+	list-style:none;
+	padding:5px 7px;
+	margin:0px 5px 5px 0px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color:#7eb703;
+	display:block;
+	font: 12px/12px 'LiberationSansItalic', Arial, sans-serif;
+	text-shadow:0px 1px 1px #000000;
+}
+
+#chatarea {
+	height:375px;
+	width:400px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+#chatarea li {
+	display:block;
+	margin:0px;
+	padding:20px;
+	background:#ffffff url('img/chatbg.png') top repeat-x;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #e2e1dd;
+	
+}
+
+#chatarea li.myself .timestamp {
+	list-style:none;
+	padding:0px 0px;
+	margin:2px 0px 0px 5px;
+	border-radius: 0px;
+	display:block;
+	float:left;
+	color:#ffffff;
+	font: 10px/10px 'LiberationSansItalic', Arial, sans-serif;
+	text-shadow:0px 1px 1px #666666;
+
+	
+}
+
+#chatarea li.myself .username {
+	list-style:none;
+	padding:0px 0px;
+	margin:0px 0px 0px 0px;
+	border-radius: 3px;
+	display:block;
+	float:left;
+	color:#ffffff;
+	font: 18px/10px 'LiberationSansBold', Arial, sans-serif;
+	text-shadow:0px 1px 1px #666666;	
+}
+
+.timestamp {
+	list-style:none;
+	padding:0px 0px;
+	margin:2px 0px 0px 5px;
+	border-radius: 0px;
+	display:block;
+	float:left;
+	color:#333333;
+	font: 10px/10px 'LiberationSansItalic', Arial, sans-serif;
+	text-shadow:0px 1px 1px #999999;	
+}
+
+.username {
+	list-style:none;
+	padding:0px 0px;
+	margin:0px 0px 0px 0px;
+	border-radius: 3px;
+	display:block;
+	float:left;
+	color:#333333;
+	font: 18px/10px 'LiberationSansBold', Arial, sans-serif;
+	text-shadow:0px 1px 1px #999999;	
+}
+
+
+#chatarea li.myself {
+	display:block;
+	margin:0px;
+	padding:20px;
+	background:#ebf5cd url('img/myselfbg.png') top repeat-x;
+	border-top: 1px solid #fbffee;
+	border-bottom: 1px solid #cee699;
+}
+
+#chatarea p.text {
+	font: 13px/16px 'LiberationSansRegular', Arial, sans-serif;
+	display:block;
+	margin:20px 0px 0px 0px;
+	color:#333333;
+	
+}
+
+#messagebox {
+	padding:20px; 
+	margin:0px;
+	width:360px;
+	height:60px;
+	background:#222222 url('img/headerbg.png') top repeat-x;
+	border-bottom: 1px solid #000000;
+}
+
+#messageinput {
+	width:350px;
+	height:50px;
+	font: 13px/16px 'LiberationSansRegular', Arial, sans-serif;
+
+	
+	
+}
+
+
+
+
+
+
+
+
