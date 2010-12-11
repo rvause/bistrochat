@@ -7,3 +7,4 @@ urlpatterns = patterns('chat.views',
     (r'^users/$', 'updateUserlist'),
     (r'^init/$', 'init'),
 )
+

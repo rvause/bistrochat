@@ -8,6 +8,7 @@ class WatercoolerAdmin(admin.ModelAdmin):
     list_display = ('time', 'chatter', 'message')
     date_hierarchy = 'time'
     list_filter = ['chatter']
+    search_fields = ('message',)
     
 admin.site.register(Chatter, ChatterAdmin)
 admin.site.register(Watercooler, WatercoolerAdmin)

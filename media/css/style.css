@@ -30,14 +30,23 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'ComicSansMSRegular';
+	src: url('fonts/comic-webfont.eot');
+	src: local('☺'), url('fonts/comic-webfont.woff') format('woff'), url('fonts/comic-webfont.ttf') format('truetype'), url('fonts/comic-webfont.svg#webfontxR55vDCa') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
-	padding:0px; 
+	padding:0px;
 	margin:0px;
 	font: 18px/27px 'LiberationSansRegular', Arial, sans-serif;
+	overflow: hidden;
 }
 
 #header {
-	padding:20px; 
+	padding:20px;
 	margin:0px;
 	width:360px;
 	height:35px;
@@ -46,7 +55,9 @@ body {
 }
 
 #header h1 {
-	padding:0px; 
+	padding:0px;
+	width:200px;
+	float:left;
 	margin:3px 0px 0px 0px;
 	font: 24px/27px 'LiberationSansBold', Arial, sans-serif;
 	color:#ffffff;
@@ -58,8 +69,6 @@ body {
 	width:360px;
 	height:100%;
 	padding:10px 20px 5px 20px;
-
-	color: #ffffff;
 	display:block;
 	overflow:auto;
 	border-top: 1px solid #adff00;
@@ -76,8 +85,10 @@ body {
 	border-radius: 3px;
 	background-color:#7eb703;
 	display:block;
+	color: #ffffff;
 	font: 12px/12px 'LiberationSansItalic', Arial, sans-serif;
 	text-shadow:0px 1px 1px #000000;
+	cursor: pointer;
 }
 
 #chatarea {
@@ -94,7 +105,6 @@ body {
 	background:#ffffff url('img/chatbg.png') top repeat-x;
 	border-top: 1px solid #ffffff;
 	border-bottom: 1px solid #e2e1dd;
-	
 }
 
 #chatarea li.myself .timestamp {
@@ -107,8 +117,6 @@ body {
 	color:#ffffff;
 	font: 10px/10px 'LiberationSansItalic', Arial, sans-serif;
 	text-shadow:0px 1px 1px #666666;
-
-	
 }
 
 #chatarea li.myself .username {
@@ -120,7 +128,40 @@ body {
 	float:left;
 	color:#ffffff;
 	font: 18px/10px 'LiberationSansBold', Arial, sans-serif;
-	text-shadow:0px 1px 1px #666666;	
+	text-shadow:0px 1px 1px #666666;
+}
+
+#chatarea li.atme .timestamp {
+	list-style:none;
+	padding:0px 0px;
+	margin:2px 0px 0px 5px;
+	border-radius: 0px;
+	display:block;
+	float:left;
+	color:#ffffff;
+	font: 10px/10px 'LiberationSansItalic', Arial, sans-serif;
+	text-shadow:0px 1px 1px #666666;
+}
+
+#chatarea li.atme .username {
+	list-style:none;
+	padding:0px 0px;
+	margin:0px 0px 0px 0px;
+	border-radius: 3px;
+	display:block;
+	float:left;
+	color:#ffffff;
+	font: 18px/10px 'LiberationSansBold', Arial, sans-serif;
+	text-shadow:0px 1px 1px #666666;
+}
+
+#chatarea li.atme {
+	display:block;
+	margin:0px;
+	padding:20px;
+	background:#cde2f5 url('img/atmebg.png') top repeat-x;
+	border-top: 1px solid #cde2f5;
+	border-bottom: 1px solid #b7d2f3;
 }
 
 .timestamp {
@@ -132,7 +173,7 @@ body {
 	float:left;
 	color:#333333;
 	font: 10px/10px 'LiberationSansItalic', Arial, sans-serif;
-	text-shadow:0px 1px 1px #999999;	
+	text-shadow:0px 1px 1px #999999;
 }
 
 .username {
@@ -144,9 +185,8 @@ body {
 	float:left;
 	color:#333333;
 	font: 18px/10px 'LiberationSansBold', Arial, sans-serif;
-	text-shadow:0px 1px 1px #999999;	
+	text-shadow:0px 1px 1px #999999;
 }
-
 
 #chatarea li.myself {
 	display:block;
@@ -162,11 +202,21 @@ body {
 	display:block;
 	margin:20px 0px 0px 0px;
 	color:#333333;
-	
+}
+
+#chatarea p.text a {
+	font: 13px/16px 'LiberationSansBoldItalic', Arial, sans-serif;
+	text-decoration:none;
+	margin:20px 0px 0px 0px;
+	color:#333333;
+}
+
+#chatarea p.text a:hover {
+	text-decoration:underline;
 }
 
 #messagebox {
-	padding:20px; 
+	padding:20px;
 	margin:0px;
 	width:360px;
 	height:60px;
@@ -178,15 +228,111 @@ body {
 	width:350px;
 	height:50px;
 	font: 13px/16px 'LiberationSansRegular', Arial, sans-serif;
-
-	
-	
 }
 
+#timeout {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	z-index:99;
+	background:#333333;
+	filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+}
 
+#timeouttext {
+	width:350px;
+	height:28px;
+	position:absolute;
+	top:45%;
+	left:20px;
+	right:20px;
+	z-index:999;
+	text-align:center;
+	background:#7eb703;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding:2px 5px 5px 5px;
+	color:#ffffff;
+	font: 11px/14px 'LiberationSansRegular', Arial, sans-serif;
+	text-shadow:0px 1px 1px #000000;
+}
 
+#timeouttext a {
+	color:#ffffff;
+	text-shadow:0px 1px 1px #000000;
+	text-decoration:none;
+	font: 11px/14px 'LiberationSansBold', Arial, sans-serif;
+}
 
+#timeouttext a:hover {
+	text-decoration:underline;
+}
 
+#offline {
+	padding:5px 7px;
+	margin:7px 5px 5px 0px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color:#333333;
+	color:#7eb703;
+	display:block;
+	float:left;
+	font: 14px/14px 'LiberationSansItalic', Arial, sans-serif;
+	text-shadow:0px 1px 1px #000000;
+}
 
+#chatarea li.davids .timestamp {
+	list-style:none;
+	padding:0px 0px;
+	margin:2px 0px 0px 5px;
+	border-radius: 0px;
+	display:block;
+	float:left;
+	color:#ffffff;
+	font: 10px/10px 'ComicSansMSRegular', sans-serif !important;
+	text-shadow:0px 1px 1px #666666;
+}
 
+#chatarea li.davids .username {
+	list-style:none;
+	padding:0px 0px;
+	margin:0px 0px 0px 0px;
+	border-radius: 3px;
+	display:block;
+	float:left;
+	color:#f0f;
+	text-shadow:0px 1px 1px #666666;
+	font: 18px/10px 'ComicSansMSRegular', sans-serif !important;
+
+}
+
+#chatarea li.davids {
+	display:block;
+	margin:0px;
+	padding:20px;
+	/*background:#cde2f5 url('img/davebg.png') left top repeat-x;*/
+	background:#cde2f5;
+	border-top: 1px solid #fbf;
+	border-bottom: 1px solid #996699;
+}
+
+#chatarea li.davids p.text {
+	font: 13px/16px 'ComicSansMSRegular', sans-serif !important;
+}
+
+#chatarea li.davids p.text a {
+    font: 13px/16px 'ComicSansMSRegular', sans-serif !important;
+}
+
+#chatarea li.davids p.text a:hover {
+	text-decoration:underline;
+}
 

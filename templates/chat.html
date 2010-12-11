@@ -2,11 +2,9 @@
 <html>
 <head>
 <title> The Watercooler </title>
-<script src="http://192.168.1.100/frontend/themes/green_apple/js/jquery-1.3.2.min.js "></script>
-<script>
-
-</script>
-<link rel="stylesheet" type="text/css" href="media/css/style.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<link rel="icon" href="/static/css/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="/static/css/chat_style.css" />
 <script>
 var username = '{{ user }}';
 var url_updateChat = '{% url chat.views.updateChat %}';
@@ -14,15 +12,18 @@ var url_updateUserList = '{% url chat.views.updateUserlist %}';
 var url_sendMessage = '{% url chat.views.sendMessage %}';
 var url_init = '{% url chat.views.init %}';
 </script>
-<script src="/media/js/chat.js"></script>
+<script src="/static/js/chat.js"></script>
 </head>
 <body>
 <div id="container">
-	<div id="timeout" style="display: none;">
-		Your session has timed out, please close this window and restart your chat session.
+	<div id="timeout" style="display:none;">
+	</div>
+	<div id="timeouttext" style="display:none;">
+		Your session has timed out. <br>
+		Please <a href="./?name={{ user }}">click here</a> to restart your session.
 	</div>
 	<div id="header">
-		<h1>The Watercooler</h1><span id="offline"><span>
+		<h1>The Watercooler</h1><span id="offline" style="display:none;"><span>
 	</div>
 	<div id="userlist">
 	</div>
